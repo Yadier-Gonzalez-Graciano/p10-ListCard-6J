@@ -1,43 +1,58 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MilistaCard());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MilistaCard extends StatelessWidget {
+  const MilistaCard({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: "Mi ListView Gonzalez Yadier",
       theme: ThemeData(
-        // useMaterial3: true,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Paginainicial(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class Paginainicial extends StatefulWidget {
+  const Paginainicial({Key? key}) : super(key: key);
 
+  @override
+  State<Paginainicial> createState() => _PaginainicialState();
+}
+
+class _PaginainicialState extends State<Paginainicial> {
+  List<String> images = [
+    "assets/images/avatar1.png",
+    "assets/images/avatar2.png",
+    "assets/images/avatar3.png",
+    "assets/images/avatar4.png",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+        appBar: AppBar(
+          title: const Text("ListaView Gonzalez"),
         ),
-      ),
-    );
+        body: ListView.builder(
+          itemBuilder: (BuildContext, index) {
+            return Card(
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(images[index]),
+                ),
+                title: Text("El titulo"),
+                subtitle: Text("El subtitulo"),
+              ),
+            );
+          },
+          itemCount: images.length,
+          shrinkWrap: true,
+          padding: EdgeInsets.all(5),
+          scrollDirection: Axis.vertical,
+        ));
   }
 }
