@@ -24,3 +24,5 @@ samples, guidance on mobile development, and a full API reference.
 - Yadier Gonzalez Graciano 6J
 
 - Resultados
+- ![image](https://github.com/Yadier-Gonzalez-Graciano/p10-ListCard-6J/assets/143548098/eb39e5bc-8147-4a98-93b8-a6ef0db0f247)
+
